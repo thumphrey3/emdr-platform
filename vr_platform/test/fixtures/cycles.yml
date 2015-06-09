@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  picture: MyText
+  negativecognition: MyText
+  positivecognition: MyText
+  initial_voc: 1
+  initial_sud: 1
+  emotion: MyText
+  body_location: MyText
+
+two:
+  picture: MyText
+  negativecognition: MyText
+  positivecognition: MyText
+  initial_voc: 1
+  initial_sud: 1
+  emotion: MyText
+  body_location: MyText
