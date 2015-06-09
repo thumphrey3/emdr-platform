@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require twitter/bootstrap
+//= require fuelux.js
 //= require_tree .
+
+$(document).ready(function(){
+  /* Your javascripts goes here... */
+});
