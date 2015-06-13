@@ -19,4 +19,7 @@
 
 $(document).ready(function(){
   /* Your javascripts goes here... */
+   $('#emdrWizard')
+        // Call the wizard plugin
+        .wizard() 	
 });

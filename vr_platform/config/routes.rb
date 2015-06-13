@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "cycles#index"
+  root "cycles#new"
   resources :cycles
 
 end
