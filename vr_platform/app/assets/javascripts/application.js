@@ -19,7 +19,26 @@
 
 $(document).ready(function(){
   /* Your javascripts goes here... */
-   $('#emdrWizard')
-        // Call the wizard plugin
-        .wizard() 	
+   $('#my-wizard').on('change', function(e, data) {
+                console.log('change');
+                if(data.step===3 && data.direction==='next') {
+                    // return e.preventDefault();
+                }
+            });
+
+            $('#my-wizard').on('changed', function(e, data) {
+                console.log('changed');
+            });
+
+            $('#my-wizard').on('finished', function(e, data) {
+                console.log('finished');
+            });
+
+            $('.btn-prev').on('click', function() {
+                console.log('prev');
+            });
+
+            $('.btn-next').on('click', function() {
+                console.log('next');
+            });	
 });
