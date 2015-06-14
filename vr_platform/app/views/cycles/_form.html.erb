@@ -1,4 +1,4 @@
-<%= simple_form_for(@cycle) do |f| %>
+<%= simple_form_for @cycle, remote: true do |f| %>
     <%= f.input :picture, label: 'Picture', placeholder: 'Description of memory for target event' %>
     <%= f.input :negativecognition, label: 'Negative Cognition', placeholder: 'Negative Cognition' %>
     <%= f.input :positivecognition, label: 'Positive Cognition', placeholder: 'Positive Cognition' %>
@@ -7,4 +7,5 @@
     <%= f.input :initial_sud, label: 'Initial Subjective Units of Distress (SUD)', collection: 0..10 %>
     <%= f.input :body_location, label: 'Location of Body Sensation', placeholder: 'Description of body sensation' %>
     <%= f.button :submit %>
+    
 <% end %>

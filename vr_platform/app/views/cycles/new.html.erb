@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html class="no-js fuelux">
-<head>
+<!-- <!DOCTYPE html>
+<html class="no-js fuelux"> -->
+
+<!-- <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>E-Learning</title>
     <link rel="stylesheet" href="https://fuelcdn.com/fuelux/2.3/css/fuelux.min.css">
-</head>
+</head> -->
+
 <body>
     <div class="container-fluid">
         <h1>EMDR Cycle</h1>
         <div id="my-wizard" class="wizard">
+        <!-- Setting up steps row -->
             <ul class="steps">
                 <li data-target="#step1" class="active"><span class="badge badge-info">1</span>Overview<span class="chevron"></span></li>
                 <li data-target="#step2"><span class="badge">2</span>Assessment<span class="chevron"></span></li>
@@ -23,54 +26,74 @@
                 <button class="btn btn-mini btn-next" data-last="Finish">Next<i class="icon-arrow-right"></i></button>
             </div>
         </div>
+
         <div class="step-content">
             <div class="step-pane active" id="step1">
-                <%= render 'form' %>
+                Patient Overview Goes Here
             </div>
-            <div class="step-pane" id="step2">
-                step2
+
+            <div class="step-pane sample-pane bg-danger alert" id="step2">
+                <div id="assessment_form"><%= render 'form' %></div>
             </div>
+    
             <div class="step-pane" id="step3">
-                step3
+                <div class="row-fluid"> 
+                    <div class="span6">Step 3</div>
+                    <div class="span6"><div id="chart"></div></div>
+                </div>
             </div>
+
             <div class="step-pane" id="step4">
             </div>
+
             <div class="step-pane" id="step5">
             </div>
+
             <div class="step-pane sample-pane bg-danger alert" id="step6">
                 <h4>Closure</h4>
-                    <p>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jÃ­cama salsify. </p>
+                    <p>Add closing notes here.</p>
             </div>
+
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://fuelcdn.com/fuelux/2.3/loader.min.js"></script>
-    <script>
-        $(document).ready(function(){
+ <script> 
 
-            $('#my-wizard').on('change', function(e, data) {
-                console.log('change');
-                if(data.step===3 && data.direction==='next') {
-                    // return e.preventDefault();
-                }
-            });
+    function initialize() {
 
-            $('#my-wizard').on('changed', function(e, data) {
-                console.log('changed');
-            });
+        $('my-wizard').wizard()
 
-            $('#my-wizard').on('finished', function(e, data) {
-                console.log('finished');
-            });
-
-            $('.btn-prev').on('click', function() {
-                console.log('prev');
-            });
-
-            $('.btn-next').on('click', function() {
-                console.log('next');
-            });
+        $('my-wizard').on('changed.fu.wizard', function () {
+            $( "#chart" ).empty(); //clear chart so it doesn't create multiple if multiple clicks
+        // Create a Bar Chart with Morris
+        var chart = Morris.Bar({
+            element: 'chart',
+            data: [0, 0], // Set initial data (ideally you would provide an array of default data)
+            xkey: 'd', // Set the key for X-axis
+            ykeys: ['test1','test2','test3'], // Set the key for Y-axis
+            labels: ['test1','test2','test3'], // Set the label when bar is rolled over
+            stacked: true
         });
-    </script>
+
+        // Fire off an AJAX request to load the data
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            url: "../scripts/all_versions.php", // This is the URL to the API
+
+        })
+            .done(function (data) {
+                // When the response to the AJAX request comes back render the chart with new data
+                chart.setData(data);
+            })
+            .fail(function () {
+                // If there is no communication between the server, show an error
+                alert("error occured");
+           });
+        });
+        };
+
+        initialize();
+
+  </script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exposure_type: MyString
+  phase: MyString
+  loop_no: 1
+  score: 1
+  annotation: MyText
+
+two:
+  exposure_type: MyString
+  phase: MyString
+  loop_no: 1
+  score: 1
+  annotation: MyText

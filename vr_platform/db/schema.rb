@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609041502) do
+ActiveRecord::Schema.define(version: 20150614193557) do
+
+  create_table "blsexposures", force: true do |t|
+    t.string   "exposure_type"
+    t.string   "phase"
+    t.integer  "loop_no"
+    t.integer  "score"
+    t.text     "annotation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cycles", force: true do |t|
     t.text     "picture"
@@ -21,6 +31,32 @@ ActiveRecord::Schema.define(version: 20150609041502) do
     t.integer  "initial_sud"
     t.text     "emotion"
     t.text     "body_location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patients", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.integer  "age"
+    t.text     "medication"
+    t.text     "conditions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions", force: true do |t|
+    t.datetime "appointment_date"
+    t.string   "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "targetevents", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "priority"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

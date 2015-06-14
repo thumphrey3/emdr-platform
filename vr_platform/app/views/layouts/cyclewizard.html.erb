@@ -1,20 +1,22 @@
 <html class="no-js fuelux">
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>VrPlatform</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>VR Platform</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://fuelcdn.com/fuelux/2.3/css/fuelux.min.css">
-  <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
 	
 	<%= yield %>
- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 	
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
  	<script src="https://fuelcdn.com/fuelux/2.3/loader.min.js"></script>
 
 </body>
+
 </html>
 
