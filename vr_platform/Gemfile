@@ -50,9 +50,7 @@ gem 'simple_form'
 gem 'twilio-ruby'
 
 #Adding Longitudinal Chart Functionality-Line Charts
-gem 'morrisjs-rails'
-gem 'raphael-rails'
-gem 'lazy_high_charts'
+gem 'd3_rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

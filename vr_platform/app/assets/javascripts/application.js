@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require d3
 //= require twitter/bootstrap
 //= require fuelux.js
 //= require_tree .

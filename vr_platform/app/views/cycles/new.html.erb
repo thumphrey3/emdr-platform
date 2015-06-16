@@ -39,7 +39,7 @@
             <div class="step-pane" id="step3">
                 <div class="row-fluid"> 
                     <div class="span6">Step 3</div>
-                    <div class="span6"><div id="chart"></div></div>
+                    <div class="span6"></div>
                 </div>
             </div>
 
@@ -56,44 +56,6 @@
 
         </div>
     </div>
- <script> 
-
-    function initialize() {
-
-        $('my-wizard').wizard()
-
-        $('my-wizard').on('changed.fu.wizard', function () {
-            $( "#chart" ).empty(); //clear chart so it doesn't create multiple if multiple clicks
-        // Create a Bar Chart with Morris
-        var chart = Morris.Bar({
-            element: 'chart',
-            data: [0, 0], // Set initial data (ideally you would provide an array of default data)
-            xkey: 'd', // Set the key for X-axis
-            ykeys: ['test1','test2','test3'], // Set the key for Y-axis
-            labels: ['test1','test2','test3'], // Set the label when bar is rolled over
-            stacked: true
-        });
-
-        // Fire off an AJAX request to load the data
-        $.ajax({
-            type: "GET",
-            dataType: 'json',
-            url: "../scripts/all_versions.php", // This is the URL to the API
-
-        })
-            .done(function (data) {
-                // When the response to the AJAX request comes back render the chart with new data
-                chart.setData(data);
-            })
-            .fail(function () {
-                // If there is no communication between the server, show an error
-                alert("error occured");
-           });
-        });
-        };
-
-        initialize();
-
-  </script>
+ 
 </body>
 </html>
