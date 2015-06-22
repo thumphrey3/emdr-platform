@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614193557) do
+ActiveRecord::Schema.define(version: 20150620222958) do
 
   create_table "blsexposures", force: true do |t|
     t.string   "exposure_type"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150614193557) do
     t.text     "annotation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cycle_id"
   end
 
   create_table "cycles", force: true do |t|
@@ -33,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150614193557) do
     t.text     "body_location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "session_id"
+    t.integer  "targetevent_id"
   end
 
   create_table "patients", force: true do |t|
@@ -51,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150614193557) do
     t.string   "number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "patient_id"
   end
 
   create_table "targetevents", force: true do |t|

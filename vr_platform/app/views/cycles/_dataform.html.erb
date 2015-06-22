@@ -1,0 +1,7 @@
+<%= simple_form_for(Blsexposure.new, html: {class: 'form-vertical'}, remote: true) do |f| %>
+  <%= f.input :loop_no  %>
+  <%= f.input :score %>
+  <%= f.input :annotation %> 
+  <%= f.hidden_field :phase, value: "desensitization" %>
+  <%= f.button :submit %>
+<% end %>

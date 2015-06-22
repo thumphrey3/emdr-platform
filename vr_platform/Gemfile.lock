@@ -182,6 +182,7 @@ DEPENDENCIES
   fuelux-rails
   jbuilder (~> 2.0)
   jquery-rails
+  json
   pry-byebug
   pry-rails
   rails (= 4.1.4)

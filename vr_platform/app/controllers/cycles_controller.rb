@@ -40,5 +40,4 @@ class CyclesController < ApplicationController
   def cycle_params
     params.require(:cycle).permit(:picture, :negativecognition, :positivecognition, :initial_voc, :initial_sud, :emotion, :body_location)
   end
-
 end
