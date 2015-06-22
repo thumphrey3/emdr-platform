@@ -1,7 +1,8 @@
+<br>
 <%= simple_form_for(Blsexposure.new, html: {class: 'form-vertical'}, remote: true) do |f| %>
-  <%= f.input :loop_no  %>
-  <%= f.input :score %>
+  <%= f.input :loop_no, label: 'BLS Run Number'  %>
+  <%= f.input :score, label: 'Subjective Units of Distress (SUD) Score' %>
   <%= f.input :annotation %> 
   <%= f.hidden_field :phase, value: "desensitization" %>
-  <%= f.button :submit %>
+ <div id="btn-phase4"><%= f.button :submit, value: "Add SUD Score" %></div>
 <% end %>
