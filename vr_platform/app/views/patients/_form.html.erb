@@ -1,0 +1,10 @@
+<%= simple_form_for(@patient, html: {class: 'form-vertical'}) do |f| %>
+  <%= f.input :first_name, label: 'First Name', placeholder: 'First Name' %>
+  <%= f.input :last_name, label: 'Last Name', placeholder: 'Last Name' %>
+  <%= f.input :gender, as: :radio_buttons, collection: ['Male', 'Female'], :item_wrapper_class => 'inline' %> 
+  <%= f.input :age, collection: 0..120  %>
+  <%= f.input :medication %>
+  <%= f.input :conditions, as: :check_boxes, collection: conditions_list, :item_wrapper_class => 'inline' %>
+  <br>
+  <%= f.button :submit, :class => 'btn btn-default' %>
+<% end %>
