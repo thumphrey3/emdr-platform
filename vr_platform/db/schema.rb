@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620222958) do
+ActiveRecord::Schema.define(version: 20150627193537) do
 
   create_table "blsexposures", force: true do |t|
     t.string   "exposure_type"
@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(version: 20150620222958) do
     t.datetime "updated_at"
     t.integer  "session_id"
     t.integer  "targetevent_id"
+    t.integer  "patient_id"
   end
+
+  add_index "cycles", ["patient_id"], name: "index_cycles_on_patient_id"
 
   create_table "patients", force: true do |t|
     t.string   "first_name"
@@ -47,6 +50,10 @@ ActiveRecord::Schema.define(version: 20150620222958) do
     t.text     "conditions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "telephone_no"
+    t.string   "zipcode"
+    t.string   "emergencycontact"
+    t.string   "emergencycontact_no"
   end
 
   create_table "sessions", force: true do |t|

@@ -1,0 +1,6 @@
+<%= simple_form_for(@session, html: {class: 'form-vertical'}) do |f| %>
+	<%= f.association :patient, :label_method => :first_name, :value_method => :id %>
+	<%= f.input :appointment_date %> 
+	<%= f.input :number %>
+	<%= f.button :submit %>
+<% end %> 
