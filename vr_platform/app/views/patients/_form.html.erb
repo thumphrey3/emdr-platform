@@ -2,9 +2,13 @@
   <%= f.input :first_name, label: 'First Name', placeholder: 'First Name' %>
   <%= f.input :last_name, label: 'Last Name', placeholder: 'Last Name' %>
   <%= f.input :gender, as: :radio_buttons, collection: ['Male', 'Female'], :item_wrapper_class => 'inline' %> 
-  <%= f.input :age, collection: 0..120  %>
+  <%= f.input :age, collection: 0..110  %>
+  <%= f.input :zipcode %>
   <%= f.input :medication %>
   <%= f.input :conditions, as: :check_boxes, collection: conditions_list, :item_wrapper_class => 'inline' %>
+  <br>
+  <%= f.input :emergencycontact, label: 'Emergency Contact' %>
+  <%= f.input :emergencycontact_no, label: 'Emergency Contact Telephone No.', placeholder: '(XXX) XXX-XXXX' %>
   <br>
   <%= f.button :submit, :class => 'btn btn-default' %>
 <% end %>

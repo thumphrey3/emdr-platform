@@ -1,2 +1,18 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+<h2><%= @patient.fullname%> Profile</h2>
+<p><b>Gender:</b> <%= @patient.gender %>	<b>Age:</b> <%= @patient.age %></p>
+<p><b>Telephone Number:</b> <%= @patient.telephone_no%></p>
+<p><b>Emergency Contact:</b> <%= @patient.emergencycontact%>, <em><%=@patient.emergencycontact_no%></em></p>
+<p><b>Medications:</b> <%= @patient.medication%></p>
+<p><b>Conditions:</b>
+	<ul>
+		<% if @patient.conditions.nil? %>
+			<li>None</li>
+		<% else %>
+		<% @patient.conditions.each do |c| %>
+			<li><%= c %></li>
+		<% end %>
+		<% end %>
+	</ul>
+</p>
+
+

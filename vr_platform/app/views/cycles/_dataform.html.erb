@@ -3,6 +3,7 @@
   <%= f.input :loop_no, label: 'BLS Run Number'  %>
   <%= f.input :score, label: 'Subjective Units of Distress (SUD) Score' %>
   <%= f.input :annotation %> 
+  <%= f.association :cycle, :label_method => 
   <%= f.hidden_field :phase, value: "desensitization" %>
  <div id="btn-phase4"><%= f.button :submit, value: "Add SUD Score" %></div>
 <% end %>
