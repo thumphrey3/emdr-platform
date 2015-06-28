@@ -1,0 +1,21 @@
+<table class="table table-bordered" id="Session_Table">
+	<thead>
+		<tr style="background-color: #CDFFE6">
+			<td style="font-size: 14px"><strong>Date</strong></td>
+			<td style="font-size: 14px"><strong>Patient</strong></td>
+			<td style="font-size: 14px"><strong>Session Number</strong></td>
+		</tr>
+	</thead>
+
+	<% @sessions.each do |session| %>
+
+	<tbody>
+		<tr>
+			<% link = session.id %>
+			<td><%= link_to session.appointment_date.strftime("%a %b %d, %I:%M%p"), session_path(link)%></td> 
+			<td><%= session.patient.fullname %></td> 
+			<td><%= session.number %></td> 
+		</tr>
+	<% end %>
+	</tbody>
+</table> 
