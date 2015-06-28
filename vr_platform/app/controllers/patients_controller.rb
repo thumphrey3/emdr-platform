@@ -18,6 +18,13 @@ class PatientsController < ApplicationController
   end
 
   def index
+    @patients = Patient.all
+    if params[:q]
+          @patient = Patient.where("first_name LIKE ? OR last_name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%").first
+          render 'show'
+    else
+          @patients = Patient.all
+    end
   end
 
   def edit

@@ -1,0 +1,23 @@
+<table class="table table-bordered" id="Patient_Table">
+	<thead>
+		<tr style="background-color: #CDFFE6">
+			<td style="font-size: 14px"><strong>Patient ID</strong></td>
+			<td style="font-size: 14px"><strong>Full Name</strong></td>
+			<td style="font-size: 14px"><strong>Contact Number</strong></td>
+			<td style="font-size: 14px"><strong>Emergency Contact</strong></td>
+		</tr>
+	</thead>
+
+	<% @patients.each do |patient| %>
+
+	<tbody>
+		<tr>
+			<% link = patient.id %>
+			<td><%= link_to patient.id, patient_path(link)%></td> 
+			<td><%= patient.fullname %></td> 
+			<td><%= patient.telephone_no %></td> 
+			<td><%= patient.emergencycontact %>- <%=patient.emergencycontact_no%></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table> 

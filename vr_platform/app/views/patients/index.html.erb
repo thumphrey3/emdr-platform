@@ -1,2 +1,10 @@
-<h1>Patients#index</h1>
-<p>Find me in app/views/patients/index.html.erb</p>
+<h2>Patients</h2>
+
+<%= form_tag patients_path, method: "GET" do %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= render 'table' %>
+
+<%= button_to "Register Patient", new_patient_path, :id => 'patient', :class=> "btn btn-default", :method => :get %>
