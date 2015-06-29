@@ -17,3 +17,13 @@
 //= require twitter/bootstrap
 //= require fuelux.js
 //= require_tree .
+
+$(document).ready(function(){
+ /* Your javascripts goes here... */
+	$('#my-wizard')
+		.wizard()
+		.on('finished.fu.wizard', function (evt, data) {
+  		// do something
+  	 		window.location.href = '/patients'; 
+  	});
+});
