@@ -1,0 +1,9 @@
+<br>
+<%= simple_form_for(Blsexposure.new, html: {class: 'form-vertical'}, remote: true) do |f| %>
+  <%= f.input :loop_no, label: 'BLS Run Number'  %>
+  <%= f.input :score, label: 'Validation of Cognition Score', collection: 1..7 %>
+  <%= f.input :annotation %>
+  <%= f.input :exposure_type, collection: phase_list %>
+  <%= f.association :cycle, label: 'Positive Cognition for Installation', :label_method => :positivecognition, :value_method => :id %>
+ <div id="btn-phase4"><%= f.button :submit, value: "Add VoC Score" %></div>
+<% end %>

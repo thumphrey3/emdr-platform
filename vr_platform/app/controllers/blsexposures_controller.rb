@@ -15,13 +15,13 @@ class BlsexposuresController < ApplicationController
   end
 
   def index
-    @blsexposures = Blsexposure.all
+    recent = Cycle.last
+    @blsexposures = Blsexposure.where("cycle_id = ? and exposure_type = ?", recent.id, "Desensitization")
     data_capture(@blsexposures)
   end
 
 
   def show
-    @blsexposures = Blsexposure.all
   end
 
   private
@@ -30,7 +30,7 @@ class BlsexposuresController < ApplicationController
   end
 
   def bls_params
-    params.require(:blsexposure).permit(:loop_no, :score, :annotation)
+    params.require(:blsexposure).permit(:exposure_type, :loop_no, :score, :annotation, :cycle_id)
   end
 
   def data_capture(bls_measurements)
@@ -48,7 +48,4 @@ class BlsexposuresController < ApplicationController
     @dataset = pre_dataset.to_json
   end
     
-
-  
-
 end

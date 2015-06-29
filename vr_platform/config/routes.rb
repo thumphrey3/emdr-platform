@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "patients#new"
+  root "cycles#new"
   resources :cycles
   resources :patients
   resources :sessions

@@ -13,8 +13,8 @@
         <div id="my-wizard" class="wizard">
         <!-- Setting up steps row -->
             <ul class="steps">
-                <li data-target="#step1" class="active"><span class="badge badge-info">1</span>Overview<span class="chevron"></span></li>
-                <li data-target="#step2"><span class="badge">2</span>Assessment<span class="chevron"></span></li>
+                <li data-target="#step1" class="active"><span class="badge badge-info">1</span>Assessment<span class="chevron"></span></li>
+                <li data-target="#step2"><span class="badge">2</span>Overview<span class="chevron"></span></li>
                 <li data-target="#step3"><span class="badge">3</span>Desensitization<span class="chevron"></span></li>
                 <li data-target="#step4"><span class="badge">4</span>Installation<span class="chevron"></span></li>
                 <li data-target="#step5"><span class="badge">5</span>Body Scan<span class="chevron"></span></li>
@@ -27,12 +27,12 @@
         </div>
 
         <div class="step-content">
-            <div class="step-pane active" id="step1">
-                Patient Overview Goes Here
+            <div class="step-pane active sample-pane bg-danger alert" id="step1">
+                <div id="assessment_form"><%= render 'form' %></div>
             </div>
 
             <div class="step-pane sample-pane bg-danger alert" id="step2">
-                <div id="assessment_form"><%= render 'form' %></div>
+                Quick Cycle Overview
             </div>
     
             <div class="step-pane" id="step3">
@@ -50,6 +50,17 @@
             </div>
 
             <div class="step-pane" id="step4">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <%= render 'graphform' %>
+                    </div>
+                    <div class="span6" id="bls_install4">
+                        <br>
+                        <p>BLS Installation Chart</p>
+                        <br>
+                        <%= render 'graph' %>
+                    </div>
+                </div>
             </div>
 
             <div class="step-pane" id="step5">

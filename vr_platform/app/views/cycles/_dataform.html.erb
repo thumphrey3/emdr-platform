@@ -1,9 +1,11 @@
 <br>
 <%= simple_form_for(Blsexposure.new, html: {class: 'form-vertical'}, remote: true) do |f| %>
   <%= f.input :loop_no, label: 'BLS Run Number'  %>
-  <%= f.input :score, label: 'Subjective Units of Distress (SUD) Score' %>
-  <%= f.input :annotation %> 
-  <%= f.association :cycle, :label_method => 
-  <%= f.hidden_field :phase, value: "desensitization" %>
+  <%= f.input :score, label: 'Subjective Units of Distress (SUD) Score', collection: 0..10 %>
+  <%= f.input :annotation %>
+  <%= f.input :exposure_type, collection: phase_list %>
+  <%= f.association :cycle, label: 'Negative Cognition for Desensitization', 
+  					:as => :collection_select, 
+  					:collection => Cycle.last(1), :label_method => :negativecognition, :value_method => :id %>
  <div id="btn-phase4"><%= f.button :submit, value: "Add SUD Score" %></div>
 <% end %>

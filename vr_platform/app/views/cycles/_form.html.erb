@@ -1,5 +1,5 @@
 <%= simple_form_for @cycle, remote: true do |f| %>
-	<%= f.association :session_id, :label_method => :session_label, :value_method => :id %>
+	<%= f.association :session, :label_method => :session_label, :value_method => :id %>
     <%= f.input :picture, label: 'Picture', placeholder: 'Description of memory for target event' %>
     <%= f.input :negativecognition, label: 'Negative Cognition', placeholder: 'Negative Cognition' %>
     <%= f.input :positivecognition, label: 'Positive Cognition', placeholder: 'Positive Cognition' %>
@@ -8,5 +8,6 @@
     <%= f.input :initial_sud, label: 'Initial Subjective Units of Distress (SUD)', collection: 0..10 %>
     <%= f.input :body_location, label: 'Location of Body Sensation', placeholder: 'Description of body sensation' %>
     <%= f.button :submit %>
-    
 <% end %>
+
+<input type="reset" value="Log Cycle" onClick="window.location.reload()">

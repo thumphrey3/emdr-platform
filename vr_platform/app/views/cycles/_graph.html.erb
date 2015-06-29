@@ -1,13 +1,14 @@
 <body>
-<div id="sud-btn">
-    <input name="updateButton" 
+<div id="voc-btn">
+    <input name="refreshButton" 
             type="button" 
           value="Update" 
-          onclick="updateData()" />
+          onclick="refreshData()" />
 </div>
+
 <script type="text/javascript">
-  var dataset;
-  var newdata;
+  var voc_dataset;
+  var voc_newdata;
   
   var w = 500;
   var h = 400;
@@ -16,7 +17,7 @@
   var xScale = d3.scale.linear().range([padding, w-padding]);
   var yScale = d3.scale.linear().range([h-padding, padding]);
   
-  var svg = d3.select("#bls_phase4")
+  var voc_svg = d3.select("#bls_install4")
         .append("svg")
         .attr("width", w)
         .attr("height", h);
@@ -29,19 +30,19 @@
                 .scale(yScale)
                 .orient("right");
 
-	d3.json("blsexposures.json", function(data) {
-		dataset = data["blsexposures"];
-		generateVis();  
+	d3.json("targets.json", function(data) {
+		voc_dataset = data["blsexposures"];
+		generateVoc();  
 		console.log(dataset)
 	});
 
-	var generateVis = function () {
+	var generateVoc = function () {
 
-    xScale.domain([0, dataset.length]);
-    yScale.domain([0, 10]);
+    xScale.domain([0, voc_dataset.length]);
+    yScale.domain([0, 7]);
 
 		svg.selectAll("circle")
-   			.data(dataset)
+   			.data(voc_dataset)
    			.enter()
    			.append("circle")
         .on("mouseover", function(d) {
@@ -56,41 +57,41 @@
   			})
   			.attr("r", 4);
 
-    svg.append("g")
+    voc_svg.append("g")
         .attr("class", "axis") //Assign "axis" class
         .attr("transform", "translate(0," + (h - padding) + ")")
         .call(xAxis);
 //X Axis Label
-    svg.append("text")
+    voc_svg.append("text")
         .attr("x", w/2)
         .attr("y", h)
         .style("text-anchor", "middle")
         .text("BLS Run No.");
 
-    svg.append("g")
+    voc_svg.append("g")
         .attr("class", "axis")
         .attr("transform", "translate(" + padding + ",0)")
         .call(yAxis);
 //Y Axis Label
-    svg.append("text")
+    voc_svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 + padding/2)
         .attr("x", 0 - h/2)
         .style("text-anchor", "middle")
-        .text("Subjective Units of Distress (SUD)");
+        .text("Validation of Cognition (VoC)");
 
   };
 
-function updateData() {
-    d3.json("blsexposures.json", function(data) {
-          newdata = data["blsexposures"];
+function refreshData() {
+    d3.json("targets.json", function(data) {
+          voc_newdata = data["blsexposures"];
         });
 
-    xScale.domain([0, newdata.length]);
-    yScale.domain([0, 10]);
+    xScale.domain([0, voc_newdata.length]);
+    yScale.domain([0, 7]);
 
-    svg.selectAll("circle")
-        .data(newdata)
+    voc_svg.selectAll("circle")
+        .data(voc_newdata)
         .transition()
         .attr("cx", function(d) {
           return xScale(d.run);
@@ -104,12 +105,12 @@ function updateData() {
   xAxis.scale(xScale);
   yAxis.scale(yScale);
 
-  svg.select("g")
+  voc_svg.select("g")
       .call(xAxis);
 
 //Entering new data
-  svg.selectAll("circle")
-        .data(newdata)
+  voc_svg.selectAll("circle")
+        .data(voc_newdata)
         .enter()
         .append("circle")
         .attr("cx", function(d) {
@@ -121,8 +122,8 @@ function updateData() {
         .attr("r", 4);
 
 //Remove old data
-  svg.selectAll("circle")
-      .data(newdata)
+  voc_svg.selectAll("circle")
+      .data(voc_newdata)
       .exit()
       .remove();
    
