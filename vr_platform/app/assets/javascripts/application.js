@@ -16,6 +16,8 @@
 //= require d3.v3
 //= require twitter/bootstrap
 //= require fuelux.js
+//= require moment
+//= require fullcalendar
 //= require_tree .
 
 $(document).ready(function(){
@@ -26,4 +28,9 @@ $(document).ready(function(){
   		// do something
   	 		window.location.href = '/patients'; 
   	});
+
+	$('#calendar').fullCalendar({
+    	 events: '/sessions.json'
+        // put your options and callbacks here
+    });
 });

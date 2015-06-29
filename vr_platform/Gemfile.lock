@@ -65,6 +65,7 @@ GEM
       rails (>= 3.1)
       railties (>= 3.1)
       twitter-bootstrap-rails
+    fullcalendar-rails (1.6.4.0)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.16)
@@ -87,6 +88,8 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.7.0)
+    momentjs-rails (2.10.3)
+      railties (>= 3.1)
     multi_json (1.11.0)
     polyglot (0.3.5)
     pry (0.10.1)
@@ -180,9 +183,11 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   d3_rails
   fuelux-rails
+  fullcalendar-rails
   jbuilder (~> 2.0)
   jquery-rails
   json
+  momentjs-rails
   pry-byebug
   pry-rails
   rails (= 4.1.4)
