@@ -6,4 +6,5 @@ class Session < ActiveRecord::Base
   def session_label
     "Session #{number} for #{patient.fullname}"
   end
+
 end

@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html class="no-js fuelux">
+<script type="text/javascript">
+$(document).ready(function(){
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="stylesheet" href="https://fuelcdn.com/fuelux/2.3/css/fuelux.min.css">
-</head>
+//Check if the current URL contains '#'
+if(document.URL.indexOf("#")==-1)
+{
+// Set the URL to whatever it was plus "#".
+url = document.URL+"#";
+location = "#";
 
+//Reload the page
+location.reload(true);
+
+}
+});
+</script> 
 <body>
     <div class="container-fluid">
         <h1>EMDR Cycle</h1>
@@ -73,7 +80,5 @@
 
         </div>
     </div>
-    
  
 </body>
-</html>

@@ -2,6 +2,10 @@
 <p><b>Patient:</b> <%= @session.patient.fullname %></p>
 <p><b><%= @session.appointment_date.strftime("%a %b %d, %I:%M%p")%></b></p>
 <p><b>Session No.</b> <%= @session.number %></p>
+<ul><%= @session.cycles.each do |cycle| %>
+	<li><%= "Cycle Targeting #{cycle.negativecognition}" %></li>
+	<% end %>
+</ul> 
 
 <p><%= link_to "Edit", edit_session_path(@session) %></p>
 <br>
@@ -10,6 +14,9 @@
 	<% elsif @session.number == "2" %>
 	<%= link_to "Create Target Sequence Plan", new_patient_path %>
 	<% else %> 
-	<%= link_to "Start Cycle", root_path %>
+	<p><%= link_to "Start Cycle", root_path %> 
+		<br>
+		<em>Please wait for cycle to fully load.</em>
+	</p>
 <% end %>
 </p>

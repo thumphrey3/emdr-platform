@@ -24,6 +24,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'fuelux-rails'
 
+gem 'jquery-turbolinks'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 

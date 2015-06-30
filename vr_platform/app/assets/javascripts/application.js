@@ -11,13 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require d3.v3
 //= require twitter/bootstrap
 //= require fuelux.js
 //= require moment
 //= require fullcalendar
+//= require turbolinks
 //= require_tree .
 
 $(document).ready(function(){

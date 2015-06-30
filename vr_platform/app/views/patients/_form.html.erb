@@ -1,6 +1,7 @@
 <%= simple_form_for(@patient, html: {class: 'form-vertical'}) do |f| %>
   <%= f.input :first_name, label: 'First Name', placeholder: 'First Name' %>
   <%= f.input :last_name, label: 'Last Name', placeholder: 'Last Name' %>
+  <%= f.input :telephone_no, label: 'Telephone Number', placeholder: '(XXX) XXX-XXXX' %>
   <%= f.input :gender, as: :radio_buttons, collection: ['Male', 'Female'], :item_wrapper_class => 'inline' %> 
   <%= f.input :age, collection: 0..110  %>
   <%= f.input :zipcode %>
