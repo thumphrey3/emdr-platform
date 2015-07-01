@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628173817) do
+ActiveRecord::Schema.define(version: 20150701214723) do
 
   create_table "blsexposures", force: true do |t|
     t.string   "exposure_type"
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(version: 20150628173817) do
     t.string   "priority"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "patient_id_id"
+    t.integer  "patient_id"
   end
 
-  add_index "targets", ["patient_id_id"], name: "index_targets_on_patient_id_id"
+  add_index "targets", ["patient_id"], name: "index_targets_on_patient_id"
 
 end
