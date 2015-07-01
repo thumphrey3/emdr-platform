@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701214723) do
+ActiveRecord::Schema.define(version: 20150701225023) do
 
   create_table "blsexposures", force: true do |t|
     t.string   "exposure_type"
@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 20150701214723) do
     t.integer  "session_id"
     t.integer  "targetevent_id"
     t.integer  "patient_id"
+    t.string   "status"
+    t.text     "notes"
+    t.text     "body_final"
   end
 
   add_index "cycles", ["patient_id"], name: "index_cycles_on_patient_id"

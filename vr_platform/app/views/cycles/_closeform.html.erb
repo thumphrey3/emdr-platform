@@ -1,0 +1,6 @@
+<%= simple_form_for Cycle.order("created_at").last, remote: true do |f| %>
+    <%= f.input :body_final, label: 'Final Body Check', placeholder: 'Description of any bodily sensations upon completion of cycle.' %>
+    <%= f.input :notes, label: 'Closing Notes' %>
+    <%= f.input :status, label: 'Cycle Status', collection: status_list %>
+    <%= f.button :submit %>
+<% end %>
