@@ -1,5 +1,5 @@
 <h2>View Session</h2>
-<p><b>Patient:</b> <%= @session.patient.fullname %></p>
+<p><b>Patient:</b> <%= link_to "#{@session.patient.fullname}", patient_path(@session.patient.id) %></p>
 <p><b><%= @session.appointment_date.strftime("%a %b %d, %I:%M%p")%></b></p>
 <p><b>Session No.</b> <%= @session.number %></p>
 <ul>

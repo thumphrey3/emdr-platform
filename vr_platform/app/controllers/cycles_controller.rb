@@ -40,4 +40,19 @@ class CyclesController < ApplicationController
   def cycle_params
     params.require(:cycle).permit(:number, :session_id, :picture, :negativecognition, :positivecognition, :initial_voc, :initial_sud, :emotion, :body_location, :body_final, :notes, :status)
   end
+
+  def data_capture(bls_measurements)
+    pre_dataset = []
+
+    bls_measurements.each do |run|
+      r_hash = Hash.new
+      r_hash['loop'] = run.loop_no
+      r_hash['score'] = run.score
+      r_hash['annotation'] = run.annotation
+
+      pre_dataset.push(r_hash)
+    end
+
+    @dataset = pre_dataset.to_json
+  end
 end

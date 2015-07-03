@@ -1,4 +1,39 @@
-<h2> Cycle Summary Page</h2>
-<div class="container-fluid">
-	
+<h2> Target Event Cycle Summary Page</h2>
+<div class="row-fluid"> 
+    <div class="span6">
+	    <p><b>Patient:</b> <%= link_to "#{@cycle.session.patient.fullname}", patient_path(@cycle.session.patient.id) %></p>
+		<p><b>Target Event:</b> <%= @cycle.picture %></p>
+		<p><b>Closing Notes:</b> <%= @cycle.notes %></p>
+		<p><b>Negative Cognition:</b> <%= @cycle.negativecognition %></p>
+		<p><b>Positive Cognition:</b> <%= @cycle.positivecognition %></p>
+		<p><b>Initial SUD Score (0-10):</b> <%= @cycle.initial_sud %>		<b>Initial VoC Score(1-7):</b> <%= @cycle.initial_voc %><p>
+		<p><b>Initial Emotions:</b> <%= @cycle.emotion %></p>
+		<p><b>Initial Body Scan:</b> <%= @cycle.body_location %>		<b>Final Body Scan:</b> <%= @cycle.body_final %><p>
+		<br>
+		<p><b>No. of Desensitization BLS Cycles:</b> <%= @cycle.blsexposures.where(exposure_type: "Desensitization").count %></p>
+		<p><b>No. of Installation BLS Cycles:</b> <%= @cycle.blsexposures.where(exposure_type: "Installation").count %></p>
+		<p><b>Status:</b> <em><%= @cycle.status %></em></p>
+		<br>
+		<p><%= link_to "Edit", edit_cycle_path(@cycle) %></p>
+    </div>
+    <div class="span6">
+    	<h4>Desensitization Review</h4>
+	<ul>
+		<% @cycle.blsexposures.where("exposure_type = ?", "Desensitization").each do |bls| %>
+		<li>Run No: <%= bls.loop_no %>, SUD: <%= bls.score %>, Annotation: <%= bls.annotation %></li>
+		<% end %>
+	</ul>
+	</div>
+<div class="row-fluid">
+	<div class="span6">
+	</div>
+	<div class="span6">
+		<h4>Installation Review</h4>
+	<ul>
+		<% @cycle.blsexposures.where("exposure_type = ?", "Installation").each do |bls| %>
+		<li>Run No: <%= bls.loop_no %>, SUD: <%= bls.score %>, Annotation: <%= bls.annotation %></li>
+		<% end %>
+	</ul>
+	</div>
+</div>
 </div>

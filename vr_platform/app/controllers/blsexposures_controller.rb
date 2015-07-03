@@ -1,5 +1,5 @@
 class BlsexposuresController < ApplicationController
-  before_action :set_bls, only: [:update, :edit, :show]
+  before_action :set_bls, only: [:update, :edit]
 
   def new
     @blsexposure = Blsexposure.new
@@ -15,9 +15,9 @@ class BlsexposuresController < ApplicationController
   end
 
   def index
-    recent = Cycle.last
-    @blsexposures = Blsexposure.where("cycle_id = ? and exposure_type = ?", recent.id, "Desensitization")
-    data_capture(@blsexposures)
+      recent = Cycle.last
+      @blsexposures = Blsexposure.where("cycle_id = ? and exposure_type = ?", recent.id, "Desensitization")
+      data_capture(@blsexposures)
   end
 
 

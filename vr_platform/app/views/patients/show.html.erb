@@ -8,7 +8,9 @@
 		<% if @patient.conditions.nil? %>
 			<li>None</li>
 		<% else %>
-		<% @patient.conditions.each do |c| %>
+		<% m = @patient.conditions.count %>
+		<% n = m-1 %>
+		<% @patient.conditions.first(n).each do |c| %>
 			<li><%= c %></li>
 		<% end %>
 		<% end %>
