@@ -1,0 +1,13 @@
+<%= simple_form_for(@determinant, html: {class: 'form-vertical'}) do |f| %>
+  <%= f.association :patient, :label_method => :fullname, :value_method => :id %>
+  <%= f.input :occupation, label: 'Occupation' %>
+  <%= f.input :education, collection: education_list %> 
+  <%= f.input :support_network, label:'Support Network' %>
+  <%= f.input :living_conditions, label: 'Living Conditions' %>
+  <%= f.input :personal_interest, label: 'Personal Interests / Strengths' %>
+  <%= f.input :ace_response, 
+              label: 'ACE Responses (Please answer each question with "yes" or "no", placing a (,) between each response.)',
+              placeholder: 'Example: yes, no, no..' %>
+  <br>
+  <%= f.button :submit, :class => 'btn btn-default', value: "Log Social Determinants"  %>
+<% end %>

@@ -19,7 +19,7 @@
     <div class="span6">
     	<h4>Desensitization Review</h4>
 	<ul>
-		<% @cycle.blsexposures.where("exposure_type = ?", "Desensitization").each do |bls| %>
+		<% @cycle.blsexposures.where("exposure_type = ?", "Desensitization").find_each do |bls| %>
 		<li>Run No: <%= bls.loop_no %>, SUD: <%= bls.score %>, Annotation: <%= bls.annotation %></li>
 		<% end %>
 	</ul>

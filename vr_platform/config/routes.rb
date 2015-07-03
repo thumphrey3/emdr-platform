@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :sessions
   resources :blsexposures
   resources :targets
+  resources :determinants
+  
 end

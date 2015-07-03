@@ -1,0 +1,17 @@
+<h2>Initial Session: Social Determinants</h2>
+<div class="row-fluid">
+	<div class="span6">
+		<%= render 'form' %>
+	</div>
+
+	<div class="span6 alert alert-warning">
+		<h4>Adverse Childhood Experiences (ACE) Questionnaire</h4>
+		<p><em>The ACE questionnaire is a simple scoring system that attributes one point for each category of adverse childhood experience. The 10 questions below each cover a different domain of trauma, and refer to experiences that occurred prior to the age of 18. Higher scores indicate associated with a greater risk of negative consequences.</em> </p>
+	<ol >
+		<% ace_questions.each do |q| %>
+		<li style="font-size:12px";><%= q %></li>
+		<br>
+		<% end %>
+	</ol>
+	</div>
+</div>
