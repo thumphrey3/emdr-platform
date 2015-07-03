@@ -16,6 +16,13 @@
 		<% end %>
 	</ul>
 </p>
+<p><b>Session History:</b>
+	<ul>
+		<ul>
+		<% @patient.sessions.each do |session| %>
+	<li><%= link_to "#{session.session_label}", session_path(session.id)%></li>
+	<% end %>
+</ul>
 <br>
 <%= link_to "Edit", edit_patient_path(@patient) %>
 <br>
