@@ -9,21 +9,20 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-  <%= nav_bar fixed: :top, brand: "Mandala VR Therapy", responsive: false do %>
-      <%= menu_group do %>
-          <%= menu_item "Home", patients_path %>
-          <%= menu_divider %>
-          <%= menu_item "Calendar", sessions_path %>
-          <%= menu_divider %>
-          <%= menu_item "Patient Reports", patients_path %>
-      <% end %>
-
-      <%= menu_group pull: :right do %>
-        <%=menu_text "VR Administration Instructions" %>
-      <% end %>
-  <% end %>
-  </div>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <nav>
+        <h2 class="navbar-brand"><font color="CE680F">MANDALA VR</font></h2>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "HOME",    patients_path %></li>
+              <li><%= link_to "SCHEDULE", sessions_path %></li>
+              <li><%= link_to "PATIENT REPORTS", patients_path %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
 
 	<%= yield %>
 
