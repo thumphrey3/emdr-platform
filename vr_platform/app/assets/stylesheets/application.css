@@ -28,6 +28,10 @@
     font-size: 11px;
 }
 
+input[type=submit] {
+  class: 'btn btn-default';
+}
+
 div.tooltip {   
   position: absolute;           
   text-align: center;           

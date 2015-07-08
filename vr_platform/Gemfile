@@ -18,9 +18,10 @@ group :assets do
   # Use CoffeeScript for .js.coffee assets and views
   gem 'coffee-rails', '~> 4.0.0'
   gem 'therubyracer'
+  gem 'less-rails'
 end
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'fuelux-rails'
 
@@ -55,7 +56,6 @@ gem 'simple_form'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 #Adding Twilio Functionality
-gem 'twilio-ruby'
 
 #Adding Longitudinal Chart Functionality-Scatter-Plots
 gem 'd3_rails'
