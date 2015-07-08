@@ -20,9 +20,7 @@ module DeterminantsHelper
   [  
     "Did a parent or other adult in the household often or very often...Swear at you, insult you, put you down, or humiliate you? or Act in a way that made you afraid that you might be physically hurt?", 
 
-
     "Did a parent or other adult in the household often or very often...Push, grab, slap, or throw something at you? or Ever hit you so hard that you had marks or were injured?",
-
 
     "Did an adult or person at least 5 years older than you ever...Touch or fondle you or have you touch their body in a sexual way? or Attempt or actually have oral, anal, or vaginal intercourse with you?",
 
@@ -40,5 +38,35 @@ module DeterminantsHelper
 
     "Did a household member go to prison?" 
   ]
+  end
+
+  def ace_score
+    score = 0;
+    response = ace_response.split(",");
+    response.each.with_index do |q, index|
+      if q == "yes"
+        puts "#{ace_list[index]}"
+        score = score + 1;
+      else
+        score = score + 0;
+      end
+    end
+
+    puts "#{score}"
+  end
+
+  def ace_list
+    [
+      "Experienced adult in household often swearing, insulting, humiliating them",
+      "Experienced adult in household often physically abusing them",
+      "Experienced sexual abuse as a child",
+      "Experienced lack of support from family growing up",
+      "Experienced neglect/deprivation (food, clothing, protection)",
+      "Experienced parents' separation/divorce",
+      "Observed domestic abuse of mother/step-mother",
+      "Lived with someone who had drug/alcohol problems",
+      "Lived with household member who was mentally ill/depressed",
+      "Member of household went to prison"
+    ];
   end
 end

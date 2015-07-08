@@ -1,31 +1,47 @@
 <h2><%= @patient.fullname%> Profile</h2>
-<p><b>Gender:</b> <%= @patient.gender %>	<b>Age:</b> <%= @patient.age %></p>
-<p><b>Telephone Number:</b> <%= @patient.telephone_no%></p>
-<p><b>Emergency Contact:</b> <%= @patient.emergencycontact%>, <em><%=@patient.emergencycontact_no%></em></p>
-<p><b>Medications:</b> <%= @patient.medication%></p>
-<p><b>Conditions:</b>
-	<ul>
-		<% if @patient.conditions.nil? %>
-			<li>None</li>
-		<% else %>
-		<% m = @patient.conditions.count %>
-		<% n = m-1 %>
-		<% @patient.conditions.first(n).each do |c| %>
-			<li><%= c %></li>
-		<% end %>
-		<% end %>
-	</ul>
-</p>
-<p><b>Session History:</b>
-	<ul>
-		<ul>
-		<% @patient.sessions.each do |session| %>
-	<li><%= link_to "#{session.session_label}", session_path(session.id)%></li>
-	<% end %>
-</ul>
-<br>
-<%= link_to "Edit", edit_patient_path(@patient) %>
-<br>
-<%= link_to "Schedule Session", new_session_path %>
-
+<div class="row-fluid">
+	<div class="span6 alert alert-success">
+		<p><b>Gender:</b> <%= @patient.gender %>	<b>Age:</b> <%= @patient.age %></p>
+		<p><b>Telephone Number:</b> <%= @patient.telephone_no%></p>
+		<p><b>Emergency Contact:</b> <%= @patient.emergencycontact%>, <em><%=@patient.emergencycontact_no%></em></p>
+		<p><b>Medications:</b> <%= @patient.medication%></p>
+		<p><b>Conditions:</b>
+			<ul>
+				<% if @patient.conditions.nil? %>
+					<li>None</li>
+				<% else %>
+				<% m = @patient.conditions.count %>
+				<% n = m-1 %>
+				<% @patient.conditions.first(n).each do |c| %>
+					<li><%= c %></li>
+				<% end %>
+				<% end %>
+			</ul>
+		</p>
+		<p><b>Session History:</b>
+			<ul>
+				<ul>
+				<% @patient.sessions.each do |session| %>
+			<li><%= link_to "#{session.session_label}", session_path(session.id)%></li>
+			<% end %>
+		</ul>
+		<br>
+		<%= link_to "Edit", edit_patient_path(@patient) %>
+		<br>
+		<%= link_to "Schedule Session", new_session_path %>
+	</div>
+	<div class="span6 alert alert-success">
+		<h4>Patient Background</h4>
+		<br>
+		<p>ACE Score</p>
+		<p>ACEs Experienced</p>
+		<p>Occupation</p>
+		<p>Education</p>
+		<p>Living Conditions</p>
+		<p>Support Network</p>
+		<p>Interests</p>
+		<br>
+		<%= link_to "Add Background", new_determinant_path %>
+	</div>
+</div>
 
