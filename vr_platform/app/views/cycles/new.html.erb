@@ -73,6 +73,11 @@ location.reload(true);
             <div class="step-pane alert alert-info" id="step5">
                 <h4>Closure</h4>
                 <br>
+                <% if Cycle.count.zero? %>
+                   <p>A Cycle has not been logged.</p>
+                <% else %>
+                    <%= render 'closeform' %>
+                <% end %>
             </div>
 
             <div class="step-pane alert alert-info" id="step6">
