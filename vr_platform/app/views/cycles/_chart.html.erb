@@ -54,7 +54,11 @@
    			.attr("cy", function(d) {
         		return yScale(d.score);
   			})
-  			.attr("r", 4);
+  			.attr("r", 4)
+        .append("title")
+        .text(function(d) {
+         return d.annotation;
+        });
 
     svg.append("g")
         .attr("class", "axis") //Assign "axis" class
@@ -112,13 +116,21 @@ function updateData() {
         .data(newdata)
         .enter()
         .append("circle")
+        .on("mouseover", function(d) {
+            d3.select(this)
+              .attr("fill", "orange");
+        })
         .attr("cx", function(d) {
           return xScale(d.run);
         })
         .attr("cy", function(d) {
           return yScale(d.score);
         })
-        .attr("r", 4);
+        .attr("r", 4)
+        .append("title")
+        .text(function(d) {
+         return d.annotation;
+        });
 
 //Remove old data
   svg.selectAll("circle")

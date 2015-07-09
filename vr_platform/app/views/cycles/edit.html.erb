@@ -1,2 +1,16 @@
-<h1>Cycles#edit</h1>
-<p>Find me in app/views/cycles/edit.html.erb</p>
+<%= simple_form_for @cycle, remote: false do |f| %>
+	<%= f.association :session, :as => :collection_select, 
+  					:collection => Session.where('appointment_date BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all,
+  					:label_method => :session_label, :value_method => :id %>
+    <%= f.input :picture, label: 'Picture', placeholder: 'Description of memory for target event' %>
+    <%= f.input :negativecognition, label: 'Negative Cognition', placeholder: 'Negative Cognition' %>
+    <%= f.input :positivecognition, label: 'Positive Cognition', placeholder: 'Positive Cognition' %>
+    <%= f.input :initial_voc, label: 'Initial Validity of Cognition for Positive Cognition (1-7)', collection: 1..7 %>
+    <%= f.input :emotion, label: 'Emotion', placeholder: 'Description of emotions when picturing target event and stating negative cognition' %>
+    <%= f.input :initial_sud, label: 'Initial Subjective Units of Distress (SUD)', collection: 0..10 %>
+    <%= f.input :body_location, label: 'Location of Body Sensation', placeholder: 'Description of body sensation' %>
+    <%= f.input :body_final, label: 'Final Body Check', placeholder: 'Description of any bodily sensations upon completion of cycle.' %>
+    <%= f.input :notes, label: 'Closing Notes' %>
+    <%= f.input :status, label: 'Cycle Status', collection: status_list %>
+    <%= f.button :submit %>
+<% end %>
