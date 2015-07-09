@@ -40,21 +40,6 @@ module DeterminantsHelper
   ]
   end
 
-  def ace_score
-    score = 0;
-    response = ace_response.split(",");
-    response.each.with_index do |q, index|
-      if q == "yes"
-        puts "#{ace_list[index]}"
-        score = score + 1;
-      else
-        score = score + 0;
-      end
-    end
-
-    puts "#{score}"
-  end
-
   def ace_list
     [
       "Experienced adult in household often swearing, insulting, humiliating them",
@@ -67,6 +52,6 @@ module DeterminantsHelper
       "Lived with someone who had drug/alcohol problems",
       "Lived with household member who was mentally ill/depressed",
       "Member of household went to prison"
-    ];
+    ]
   end
 end

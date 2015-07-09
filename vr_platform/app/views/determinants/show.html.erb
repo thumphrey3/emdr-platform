@@ -1,2 +1,20 @@
-<h1>Determinants#show</h1>
-<p>Find me in app/views/determinants/show.html.erb</p>
+<h3 class="lead">Social Determinants for <%= @determinant.patient.fullname %></h3>
+<p style="font-size:16px"><b>Occupation:</b> <%= @determinant.occupation %></p>
+<p style="font-size:16px"><b>Education:</b> <%= @determinant.education %></p>
+<p style="font-size:16px"><b>Support Network:</b> <%= @determinant.support_network %></p>
+<p style="font-size:16px"><b>Living Conditions:</b> <%= @determinant.living_conditions %></p>
+<p style="font-size:16px"><b>Personal Interests / Strengths:</b> <%= @determinant.personal_interest %></p>
+<p style="font-size:16px"><b>ACE Response:</b>
+	<ul>
+		<% score = 0 %>
+		<% response = @determinant.ace_response.split(",") %>
+		<% response.each.with_index do |q, index| %>
+			<% if q == "yes" || q == " yes" %>
+				<li><%= "#{ace_list[index]}" %></li>
+				<% score = score + 1 %>
+			<% end %>
+		<% end %>
+		<br>
+		<li><b>ACE SCORE:</b> <%= "#{score}" %></li>
+	</ul>
+</p>
